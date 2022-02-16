@@ -1,0 +1,27 @@
+
+alias gst='git status '
+alias fuck='sudo'
+alias please='sudo'
+
+
+# Add bash aliases for additional aliases.
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
+
+
+HISTTIMEFORMAT="%d/%m/%y %T "
+
+
+# Show git branch name
+force_color_prompt=yes
+color_prompt=yes
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+ }
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[0;32m\]\u@\h\[\033[00m\]:\[\033[1;33m\]\w\[\033[1;31m\]$(parse_git_branch)\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
+fi
+unset color_prompt force_color_prompt
