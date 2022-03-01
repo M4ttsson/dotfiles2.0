@@ -28,4 +28,6 @@ nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<    Space>")<CR>
+nnoremap <A-a> <C-a>
+nnoremap <A-z> <C-x>
 
